@@ -41,39 +41,6 @@
     </div>      
 </div>  
 
-<!-- Button trigger modal -->
- <div class="float-right">
-  <% if current_user && current_user == @place.user %>
-    <button type="button" class="btn btn-primary btn-space" data-toggle="modal" data-target="#myModal2">
-    Add a Photo
-    </button>
-  <% end %>
-</div>
-
-<!-- Modal -->
-<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModal2Label" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">×</span>
-        </button>
-        <h4 class="modal-title" id="myModal2Label">Add a Photo</h4>
-      </div>
-      <%= simple_form_for @photo, url: place_photos_path(@place) do |f| %>
-          <div class="modal-body">
-            <%= f.input :caption %>
-            <%= f.input :picture %>
-          </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <%= f.submit "Add a Photo", class: 'btn btn-primary' %>
-        </div>
-      <% end %>
-    </div>
-  </div>
-</div> 
-
 <div class="clear"></div>
 <br />
 
@@ -126,17 +93,53 @@
     <% end %>   
 </div>   
     
+<br/><br/>  
+<br/><br/>        
 <h1>Photos</h1>
+
+<!-- Button trigger modal -->
+ <div class="float-right">
+  <% if current_user && current_user == @place.user %>
+    <button type="button" class="btn btn-primary btn-space" data-toggle="modal" data-target="#myModal2">
+    Add a Photo
+    </button>
+  <% end %>
+</div>  
+
+<!-- Modal -->
+<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModal2Label" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+        <h4 class="modal-title" id="myModal2Label">Add a Photo</h4>
+      </div>
+      <%= simple_form_for @photo, url: place_photos_path(@place) do |f| %>
+          <div class="modal-body">
+            <%= f.input :caption %>
+            <%= f.input :picture %>
+          </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <%= f.submit "Add a Photo", class: 'btn btn-primary' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div> 
+
 
 <div class="row">
   <% @place.photos.each do |photo| %>
     <div class="col-12">
       <blockquote>
         <% if photo.caption.present? %>
-        <%= photo.caption %>
+            <%= photo.caption %>
         <% end %>
       </blockquote>
         <%= image_tag photo.picture.to_s %>
     </div>
   <% end %>
-</div>  
+</div>      
