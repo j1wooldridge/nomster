@@ -8,6 +8,14 @@
       <small><%= place.user.email %></small>        
     <% end %>
     
+    <div class="col-12">
+        <% if place.photos.present? %>
+        <div>
+            <%= image_tag place.photos.last.picture.to_s %>
+        </div>
+        <% end %>
+    </div>
+    
     <% if place.comments.present? %>
         <div class="col-12">        
             <blockquote>
@@ -20,6 +28,6 @@
         </div>
     <% end %>   
   </div>        
-<% end %> 
+<% end %>   
 
-<%= paginate @places %>       
+<%= will_paginate @places, previous_label: "Older", next_label: "Newer", inner_window: 1, outer_window: 0 %>    
