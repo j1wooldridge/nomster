@@ -1,24 +1,13 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A Yelp clone that integrates with the Google Maps API and includes features like user comments, star ratings, image uploading, and user authentication. The goal was to build a app using html, css, javascript, Ruby, Ruby on Rails to highlight skills aquired as a full stack web developer.
 
-Things you may want to cover:
+Deployed Version
 
-* Ruby version
+Visit https://nomster-jacques-wooldridge.herokuapp.com/ to deploy the app.
 
-* System dependencies
+Screenshot Version
 
-* Configuration
+![Nomster App Screenshot](app/images/Nomster_image.png "Screenshot") 
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Jacques Wooldridge.
